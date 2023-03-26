@@ -1,0 +1,32 @@
+{
+  "name": "becascut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "Hector Rivas",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "googleapis": "^110.0.0",
+    "jquery": "^3.6.1",
+    "jsdom": "^20.0.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.8.0",
+    "sweetalert2": "^11.6.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <title>Registrar Administrador</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <% if (login) { %>
+            <a class="navbar-brand" href="/home/<%= codigo %>">BecasCUT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Documentos de becas
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item disabled" href="#">Alimentos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/downFormato">Formato de solicitud</a>
+                            <a class="dropdown-item" href="/downCovocatoriaAlimentos">Convocatoria alimentos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item disabled" href="#">Becarios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/downFormato">Formato de solicitud</a>
+                            <a class="dropdown-item" href="/downCovocatoriaAlimentos">Convocatoria alimentos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown dropcenter">
+                        <a class="navbar-brand" href="/statusRegistro/<%= codigo %>">Ver registro</a>
+                    </li>
+                    <li class="nav-item dropdown dropcenter">
+                        <button class="btn btn-dark dropdown-toggle navbar-brand" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cuenta
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li class="nav-item">
+                                <a class="dropdown-item disabled" href="#">
+                                        Usuario: <%= codigo %>
+                                            <% } %>
+                                </a>
+                                <a class="dropdown-item" style="color: red; text-align: center;"
+                                    href="/Logout"><strong>Logout</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <div class="container my-3">
+        <div class="card" id="divCard" style="margin: auto; margin-top: 50px; width: 400px;">
+            <div class="mt-3" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg>
+            </div>
+            <form action="/registroAlumno" method="post">
+                <div class="card-body" style="margin: auto; text-align: center;">
+                    <label for="user">Registrate</label>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" name="codigo" id="codigo" placeholder="Codigo SIIAU"
+                            autofocus required style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingName">Codio SIIAU</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" class="form-control " name="correo" id="correo"
+                            placeholder="alumno@alumnos.udg.mx" required style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingInput">Correo UDG</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
+                            maxlength="10" minlength="10" required
+                            style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingName">Telefono</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña"
+                            minlength="8" required style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingName">Constraseña</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="pass2" id="pass2"
+                            placeholder="Repetir contraseña" minlength="8" required
+                            style="width: 350px; margin-bottom: 10px;">
+                        <label for="floatingName">Repetir constraseña</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary btn-success" type="submit" name="txtRegistro" value="Registrar"
+                            style="width: 350px;">
+                    </div>
+                </div>
+            </form>
+            <div style="text-align: center;">
+                <a href="loginAlumno">Cancelar</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert !="undefined" ){ %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirnButton %> ,
+                timer: <%= time %>
+            }).then(() => {
+                    window.location = "/registroAlumno <%= ruta %>"
+                })
+        </script>
+        <% } %>
+
+
+</body>
+
+</html>

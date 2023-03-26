@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/resources/css/style.css">
+  <title>Formulario</title>
+</head>
+
+
+<body>
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: #E0E0E0; font-family: sans-serif ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">BecasCUT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item dropdown dropcenter">
+                    <button class="btn dropdown-toggle navbar-brand" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Documentos de becas
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item disabled" href="#">Alimentos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/downFormato">Formato de solicitud</a>
+                        <a class="dropdown-item" href="/downCovocatoriaAlimentos">Convocatoria alimentos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item disabled" href="#">Becarios</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/downFormato">Formato de solicitud</a>
+                        <a class="dropdown-item" href="/downCovocatoriaAlimentos">Convocatoria alimentos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropcenter">
+                    <button class="btn">
+                        <a class="navbar-brand" href="/statusRegistro">Ver registro</a>
+                    </button>
+
+                </li>
+                <!--                         <li class="nav-item dropdown dropcenter">
+                        <button class="btn dropdown-toggle navbar-brand" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cuenta
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="dropdown-item" href="#">
+                                    <b>Usuario:</b>
+                                </a>
+                                <a class="dropdown-item" style="color: red; text-align: center;"
+                                    href="/Logout"><strong>Logout</strong></a>
+                            </li>
+                        </ul>
+                    </li> -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <div class="container my-3">
+    <div class="card shadow">
+      <div class="card-body">
+        <form class="form-group needs-validation" action="/registroUsuario" method="post" novalidate>
+          <h2 style="text-align: center;" class="mb-3">Registrar datos</h2>
+          <hr class="solid">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Codigo Siiau*"
+                  pattern="[0-9]*" required autofocus>
+                <label for="floatingInput">Codigo Siiau*</label>
+                <div class="invalid-feedback">Solo puedes ingresar numeros!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating is-invalid">
+                <input class="form-control" type="number" name="semestre" placeholder="Semestre actual*"
+                  pattern="[0-9]*" max="20" min="1" minlength="1" maxlength="2" required>
+                <label for="floatingSemestre">Semestre actual*</label>
+                <div class="invalid-feedback">Ingresa el numero de tu semestre!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="nom" id="floatingName" placeholder="Nombre(s)*"
+                  pattern="[A-Z\u00d1\s]+" title="Solo puedes ingresar letras mayusculas" required>
+                <label for="floatingName">Nombre(s)*</label>
+                <div class="invalid-feedback">Ingresa tu nombre con mayusculas!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating">
+                <input class="form-control" type="text" name="apeP" placeholder="Apellido Paterno*"
+                  pattern="[A-Z\u00d1\s]+" title="Solo puedes ingresar letras mayusculas" required>
+                <label for="floatingApellidoP">Apellido Paterno*</label>
+                <div class="invalid-feedback">Ingresa tu primer apellido con mayusculas!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating">
+                <input class="form-control" type="text" name="apeM" placeholder="Apellido Materno"
+                  pattern="[A-Z\u00d1\s]+" title="Solo puedes ingresar letras mayusculas" required>
+                <label for="floatingApellidoM">Apellido Materno</label>
+                <div class="invalid-feedback">Ingresa tu segundo apellido con mayusculas!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating">
+                <input class="form-control" type="tel" name="telP" placeholder="Telefono de contacto*" pattern="[0-9]*"
+                  maxlength="10" minlength="10" required>
+                <label for="floatingTelefonoP">Telefono de contacto*</label>
+                <div class="invalid-feedback">Ingresa tu numero a 10 digitos!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+              <div class="form-floating">
+                <input class="form-control" type="tel" name="telS" placeholder="Telefono secundario" pattern="[0-9]*"
+                  maxlength="10" minlength="10">
+                <label for="floatingTelefonoS">Telefono secundario</label>
+                <div class="invalid-feedback">Ingresa 10 digitos!</div>
+                <div class="valid-feedback">Este campo no es obligatorio!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+              <div class="form-floating">
+                <input class="form-control" type="email" name="mail" placeholder="Correo institucional UDG"
+                  pattern="[A-Z0-9._%+-]+@[ALUMNOS]+\.[UDG]+\.[MX]{2}$" required>
+                <label for="floatingCorreo">Correo institucional UDG</label>
+                <div class="invalid-feedback">Ejemplo: ALUMNO@ALUMNOS.UDG.MX</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+              <div class="form-floating">
+                <select class="form-select" id="carrera" name="carrera" required>
+                  <option value="" selected>Seleccionar</option>
+                  <option value="CPUA - LIC EN CONTADURIA PUBLICA">CPUA - LIC EN CONTADURIA PUBLICA</option>
+                  <option value="DECH - ABOGADO">DECH - ABOGADO</option>
+                  <option value="DERC - ABOGADO">DERC - ABOGADO</option>
+                  <option value="DERR - ABOGADO">DERR - ABOGADO</option>
+                  <option value="ICCO - ING EN CS COMPUTACIONALES">ICCO - ING EN CS COMPUTACIONALES
+                  </option>
+                  <option value="INAN - ING.EN NANOTECNOLOGIA">INAN - ING.EN NANOTECNOLOGIA</option>
+                  <option value="INEL - INGENIERIA EN ENERGIA">INEL - INGENIERIA EN ENERGIA
+                  </option>
+                  <option value="INEN - ING EN ENERGIA">INEN - ING EN ENERGIA</option>
+                  <option value="INGC - ING.EN CIENCIAS COMPUTACIONALES">INGC - ING.EN CIENCIAS COMPUTACIONALES
+                  </option>
+                  <option value="LCOP - LIC EN CONTADURIA PUBLICA">LCOP - LIC EN CONTADURIA PUBLICA</option>
+                  <option value="LESL - LIC. EN ESTUDIOS LIBERALES">LESL - LIC. EN ESTUDIOS LIBERALES
+                  </option>
+                  <option value="LGER - LIC EN GERONTOLOGIA">LGER - LIC EN GERONTOLOGIA</option>
+                  <option value="LHAR - LIC EN HISTORIA DEL ARTE">LHAR - LIC EN HISTORIA DEL ARTE
+                  </option>
+                  <option value="LHIA - LIC. EN HISTORIA DEL ARTE">LHIA - LIC. EN HISTORIA DEL ARTE
+                  </option>
+                  <option value="LIAN - LIC EN ADMI DE NEGOCIOS">LIAN - LIC EN ADMI DE NEGOCIOS
+                  </option>
+                  <option value="LIAR - LIC. EN ARQUITECTURA">LIAR - LIC. EN ARQUITECTURA</option>
+                  <option value="LICF - LIC. EN CIENCIAS FORENSES">LICF - LIC. EN CIENCIAS FORENSES
+                  </option>
+                  <option value="LIDA - LIC. EN DISEÑO DE ARTESANIA">LIDA - LIC. EN DISEÑO DE ARTESANIA
+                  </option>
+                  <option value="LIEL - LIC EN ESTUDIOS LIBERALES">LIEL - LIC EN ESTUDIOS LIBERALES
+                  </option>
+                  <option value="LIHA - LIC EN HISTORIA DEL ARTE">LIHA - LIC EN HISTORIA DEL ARTE</option>
+                  <option value="LISP - LIC EN SALUD PUBLICA">LISP - LIC EN SALUD PUBLICA
+                  </option>
+                  <option value="LNTO - LICENCIATURA EN NUTRICION">LNTO - LICENCIATURA EN NUTRICION</option>
+                  <option value="MCPA - LIC MEDICO CIRUJANO Y PARTERO">MCPA - LIC MEDICO CIRUJANO Y PARTERO
+                  </option>
+                  <option value="MCPA - LIC MEDICO CIRUJANO Y PARTERO">MCPA - LIC MEDICO CIRUJANO Y PARTERO
+                  </option>
+                  <option value="MCPE - MEDICO CIRUJANO Y PARTERO">MCPE - MEDICO CIRUJANO Y PARTERO</option>
+                </select>
+                <label for="floatingSelect">Seleciona tu carrera*</label>
+                <div class="invalid-feedback">No has elegido la carrera!</div>
+                <div class="valid-feedback">Correcto!</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="btn btn-primary btn-block" type="submit" name="txtRegistro" value="Registrase ahora">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    Swal.fire({
+      icon: 'info',
+      title: 'Aviso!',
+      html: '<p>Completa el formulario correctamente. <b>¡Ingresa solo mayusculas!</b></p>',
+      timer: 5000,
+      timerProgressBar: true
+    })
+  </script>
+
+  <% if(typeof alert !="undefined" ){ %>
+    <script>
+      Swal.fire({
+        title: '<%= alertTitle %>',
+        text: '<%= alertMessage %>',
+        icon: '<%= alertIcon %>',
+        showConfirmButton: <%= showConfirnButton %> ,
+        }).then(() => {
+          window.location = "/formulario <%= ruta %>"
+        })
+    </script>
+    <% } %>
+
+      <script>
+          (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+              .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+                  form.classList.add('was-validated')
+                }, false)
+              })
+          })()
+      </script>
+</body>
+
+</html>

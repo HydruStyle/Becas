@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---BOOSTRAP--->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.2/b-2.3.4/b-colvis-2.3.4/b-html5-2.3.4/b-print-2.3.4/date-1.3.0/fh-3.3.1/r-2.4.0/sb-1.4.0/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/resources/css/style.css">
+</head>
+<title>Admin</title>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="font-size: x-large;">BecasCUT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="/adminPrincipal" type="button">Ver registros</a>
+                    </li>
+                    <li class="nav-item dropdown dropcenter">
+                        <button class="btn btn-dark dropdown-toggle navbar-brand" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Cuenta
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li class="nav-item">
+                                <a class="dropdown-item disabled" href="#">
+                                    <% if (login) { %>
+                                        <%= name %>
+                                            <% } %>
+                                </a>
+                                <a class="dropdown-item" style="color: red; text-align: center;"
+                                    href="/Logout"><strong>Logout</strong></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Tabla-->
+    <div class="container my-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="mb-3" style="text-align: center;">Alumnos registrados</h2>
+                <div class="row justify-content-end">
+                    <div class="col-3"></div>
+                    <div class="col-3"></div>
+                    <div class="col-3"></div>
+                    <div class="col-3 align-self-end">
+                        <select class="form-select" name="opciones" id="opciones" data-index="3">
+                            <option id="todo" value="">VER TODO</option>
+                            <option id="pendiente" value="PENDIENTE">PENDIENTE</option>
+                            <option id="aceptado" value="ACEPTADO">ACEPTADO</option>
+                            <option id="incorrecto" value="INCORRECTO">INCORRECTO</option>
+                            <option id="actualizado" value="ACTUALIZADO">ACTUALIZADO</option>
+                        </select>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover" id="registros" style="width: 100%;">
+                    <thead style="text-align: center;">
+                        <tr>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>CORREO</th>
+                            <th>STATUS</th>
+                            <th>REGISTRO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% result.forEach((user)=>{ %>
+                            <tr>
+                                <th>
+                                    <%= user.codigo %>
+                                </th>
+                                <td>
+                                    <%= user.apeP %>
+                                        <%= user.apeM %>
+                                            <%= user.nombre %>
+                                </td>
+                                <td>
+                                    <%= user.correo %>
+                                </td>
+                                <td>
+                                    <%= user.estatus %>
+                                </td>
+                                <td style="text-align: center;">
+                                    <a href="/validar/<%= user.codigo %>" type="button"
+                                        class="btn btn-primary btn-block" style="width: 100%;">Validar</a>
+                                </td>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>CORREO</th>
+                            <th>STATUS</th>
+                            <th>REGISTRO</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!---BOOSTRAP--->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <!-- Funciones JS -->
+    <script src="/resources/css/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.2/b-2.3.4/b-colvis-2.3.4/b-html5-2.3.4/b-print-2.3.4/date-1.3.0/fh-3.3.1/r-2.4.0/sb-1.4.0/datatables.min.js"></script>
+
+
+    <script>
+        var table = $('#registros').DataTable({
+            fixedHeader: true,
+
+            deferRender: true,
+            select: true,
+            dom: 'Bfrtip',
+            dom: 'Qfrtip',
+            dom: 'lrt'
+        });
+
+        $('#opciones').change(function(){
+            table.column($(this).data('index')).search(this.value).draw();
+        })
+    </script>
+
+
+
+</body>
+
+</html>
